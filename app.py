@@ -1,19 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-import streamlit as st
-
-# --- 初始化云端计数器 ---
-# 注意：为了让“大家都能看到”，通常需要连接一个数据库
-# 这里我们模拟一个全局计数（在 Streamlit Cloud 部署后，某些连接可以实现持久化）
-# 我们使用 st.cache_resource 来尝试在不同用户间共享这个对象
-
-@st.cache_resource
-def get_global_counter():
-    return {"count": 0}
-
-global_data = get_global_counter()
-
 # 页面配置
 st.set_page_config(page_title="Ryan's Love 💙", page_icon="☁️", layout="wide")
 
@@ -63,18 +50,25 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# --- 侧边栏：实时同步拥抱 ---
+# --- 4. 侧边栏：放玉桂狗头像和拥抱计数器 ---
 st.sidebar.image("https://static.wikia.nocookie.net/sanrio/images/2/23/Cinnamoroll.png/revision/latest/scale-to-width-down/340?cb=20170220231727", width=150)
-st.sidebar.title("☁️ Global Hug Station")
+st.sidebar.title("☁️ Message for Eli")
 
-# 点击按钮
-if st.sidebar.button("Send a Global Hug 💙"):
-    global_data["count"] += 1
+# 初始化计数器 (如果还没开始数，就从 0 开始)
+if 'hug_count' not in st.session_state:
+    st.session_state.hug_count = 0
+
+# 点击按钮增加次数
+if st.sidebar.button("Click to send a hug"):
+    st.session_state.hug_count += 1
     st.sidebar.balloons()
-    st.sidebar.success(f"You sent a hug! Elizabeth now has {global_data['count']} total.")
+    st.sidebar.success(f"Hug #{st.session_state.hug_count} is flying to Elizabeth! 🧸")
 
-# 使用大数字展示 (所有打开网页的人看到的都是同一个数据源)
-st.sidebar.metric(label="Total Hugs from Everyone", value=global_data["count"])
+# 展示总次数
+st.sidebar.metric(label="Total Hugs Sent", value=st.session_state.hug_count)
+
+st.sidebar.markdown("---")
+st.sidebar.write("Ryan has sent you a lot of love today.")
 
 ---
 # Header 图片

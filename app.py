@@ -64,7 +64,7 @@ st.markdown("""
 
 # --- 侧边栏：实时同步拥抱 ---
 st.sidebar.image(cinnamoroll_img, width=160)
-st.sidebar.title("☁️ Hug Station for us", width = 180)
+st.sidebar.title("☁️ Hug Station", width = 160)
 
 # 点击按钮
 if st.sidebar.button("Click to send a hug 💙💙💙"):

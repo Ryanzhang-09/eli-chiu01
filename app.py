@@ -63,8 +63,8 @@ st.markdown("""
 
 
 # --- 侧边栏：实时同步拥抱 ---
-st.sidebar.image("https://static.wikia.nocookie.net/sanrio/images/2/23/Cinnamoroll.png/revision/latest/scale-to-width-down/340?cb=20170220231727", width=150)
-st.sidebar.title("☁️ Global Hug Station")
+st.sidebar.image(cinnamoroll_img, width=160)
+st.sidebar.title("☁️ Hug Station for Elizabeth & Ryan")
 
 # 点击按钮
 if st.sidebar.button("Click to send a hug 💙💙💙"):

@@ -4,6 +4,8 @@ import pandas as pd
 # 页面配置
 st.set_page_config(page_title="Ryan's Love 💙", page_icon="☁️", layout="wide")
 
+cinnamoroll_img = "https://www.pngkit.com/png/detail/325-3258825_cinnamoroll-transparent.png"
+
 # CSS 样式
 st.markdown("""
 <style>

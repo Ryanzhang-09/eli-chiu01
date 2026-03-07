@@ -67,10 +67,13 @@ st.sidebar.image("https://static.wikia.nocookie.net/sanrio/images/2/23/Cinnamoro
 st.sidebar.title("☁️ Global Hug Station")
 
 # 点击按钮
-if st.sidebar.button("Ryan has sent you a lot of love today 💙"):
+if st.sidebar.button("Click to send a hug 💙💙💙"):
     global_data["count"] += 1
     st.sidebar.balloons()
     st.sidebar.success(f"You sent a hug! Elizabeth now has {global_data['count']} total.")
+
+# 使用大数字展示 (所有打开网页的人看到的都是同一个数据源)
+st.sidebar.metric(label="Total Hugs from Ryan", value=global_data["count"])
 
 
 # Header 图片

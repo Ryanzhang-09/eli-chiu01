@@ -51,7 +51,7 @@ st.markdown("""
 
 
 # --- 4. 侧边栏：放玉桂狗头像和拥抱计数器 ---
-st.sidebar.image("https://static.wikia.nocookie.net/sanrio/images/2/23/Cinnamoroll.png/revision/latest/scale-to-width-down/340?cb=20170220231727", width=150)
+st.sidebar.image(cinnamoroll_img, width=160)
 st.sidebar.title("☁️ Message for Eli")
 
 # 初始化计数器 (如果还没开始数，就从 0 开始)

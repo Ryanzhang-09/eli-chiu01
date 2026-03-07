@@ -50,13 +50,25 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# Sidebar
-st.sidebar.image(cinnamoroll_img, width=160)
-st.sidebar.title("☁️ Ryan's Panel")
+# --- 4. 侧边栏：放玉桂狗头像和拥抱计数器 ---
+st.sidebar.image("https://static.wikia.nocookie.net/sanrio/images/2/23/Cinnamoroll.png/revision/latest/scale-to-width-down/340?cb=20170220231727", width=150)
+st.sidebar.title("☁️ Message for Eli")
 
-if st.sidebar.button("Send Elizabeth a Hug"):
+# 初始化计数器 (如果还没开始数，就从 0 开始)
+if 'hug_count' not in st.session_state:
+    st.session_state.hug_count = 0
+
+# 点击按钮增加次数
+if st.sidebar.button("Click to send a hug"):
+    st.session_state.hug_count += 1
     st.sidebar.balloons()
-    st.sidebar.success("A hug is flying to Davidson NC 💙")
+    st.sidebar.success(f"Hug #{st.session_state.hug_count} is flying to Elizabeth! 🧸")
+
+# 展示总次数
+st.sidebar.metric(label="Total Hugs Sent", value=st.session_state.hug_count)
+
+st.sidebar.markdown("---")
+st.sidebar.write("Ryan has sent you a lot of love today.")
 
 
 # Header 图片

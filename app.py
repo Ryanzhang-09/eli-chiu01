@@ -70,7 +70,7 @@ st.sidebar.metric(label="Total Hugs Sent", value=st.session_state.hug_count)
 st.sidebar.markdown("---")
 st.sidebar.write("Ryan has sent you a lot of love today.")
 
----
+
 # Header 图片
 colA, colB, colC = st.columns([1,2,1])
 
